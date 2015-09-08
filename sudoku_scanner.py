@@ -18,6 +18,8 @@ import cv2, cv
 from matplotlib import pyplot as plt
 import math
 import sudoku
+import sys
+
 def show_image(img,save_as=None):
     '''
     displays image
@@ -388,7 +390,7 @@ for blur_sd in [11,9,13,0,7,15]:
     try:
         for i in range(1,16):
             generate_custom_training_set('training_sets/train'+str(i)+'.png','training_sets/train'+str(i)+'.txt', blur_sd)
-        puzzle = scan('test_puzzle2.png')
+        puzzle = scan(sys.argv[1])
         puzzle.solveBoardWithGuessing()
         puzzle.printSmallBoard()
         break
